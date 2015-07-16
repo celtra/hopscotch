@@ -1494,7 +1494,7 @@
           // setInterval overhead.
           // To increase or decrease duration, change the divisor of scrollIncr.
           direction = (windowTop > targetTop) ? -1 : 1; // -1 means scrolling up, 1 means down
-          scrollIncr = Math.abs(windowTop - scrollToVal) / (getOption('scrollDuration')/10);
+          scrollIncr = Math.max(1, Math.abs(windowTop - scrollToVal) / (getOption('scrollDuration')/10));
           scrollTimeoutFn = function() {
             var scrollTop = utils.getScrollTop(),
                 scrollTarget = scrollTop + (direction * scrollIncr);
